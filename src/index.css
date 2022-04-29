@@ -25,6 +25,22 @@ h1 {
   text-shadow: 0px 4px 4px rgba(217, 200, 51, 0.9);
 }
 
+h2 {
+  font-family: 'Quantico', sans-serif;
+  font-size: 40px;
+  text-align: left;
+  line-height: 57px;
+  text-shadow: 0px 4px 4px rgba(217, 200, 51, 0.9);
+}
+
+h3 {
+  font-family: 'Quantico', sans-serif;
+  font-size: 32px;
+  text-align: left;
+  line-height: 45px;
+  text-shadow: 0px 4px 4px rgba(217, 200, 51, 0.9);
+}
+
 .button {
   border-radius: 20px;
   background-color: #55522F;

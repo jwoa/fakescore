@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import logo from '../fakescore-logo.svg'
+import * as imageConversion from 'image-conversion';
 
 
 const AddPhoto = ({ match }) => {
-//   const [dataUri, setDataUri] = useState('');
   const [images, setImages] = useState([]);
   const [imageURLs, setImageURLs] = useState([]);
 
@@ -14,23 +14,56 @@ const AddPhoto = ({ match }) => {
     setImageURLs(newImageUrls);
   }, [images]);
 
-  function onImageChange(e) {
+  function onImageChange(e) { 
       setImages([...e.target.files]);
+      console.log(e.target.files[0])
+      const file = e.target.files[0];
+
+      imageConversion.compressAccurately(file,200).then(res=>{
+        //The res in the promise is a compressed Blob type (which can be treated as a File type) file;
+        console.log(res);
+        var reader = new FileReader();
+        reader.readAsDataURL(res); 
+        reader.onloadend = function() {
+          var base64data = reader.result;                
+          console.log(base64data);
+          localStorage.setItem('uploadedPhoto', reader.result);
+        }
+      })
+
+    // // encode the file using the FileReader API
+    // const reader = new FileReader();
+    // reader.onloadend = () => {
+    //   // log to console
+    //   // logs data:<type>;base64,wL2dvYWwgbW9yZ...
+    //   console.log(reader.result);
+    //   localStorage.setItem('uploadedPhoto', reader.result);
+
+    // };
+    // reader.readAsDataURL(file);
   }
 
   return (
-    <div className='flex-auto justify-items-center'>
-      <img src={logo} className="App-logo text-center" alt="logo" />
-        <h1 className=''>+ best photo from your social</h1>
-        { imageURLs.map(imageSrc => <img src={imageSrc} />) }
-        <a
-          className="button"
-          href="/add-selfie"
-          rel="noopener noreferrer"
-        >
-          choose photo
-        </a>
-        <input type="file" multiple accept="image/*" onChange={onImageChange} />
+    <div className='flex-auto justify-items-center grid mt-40'>
+        <img src={logo} className="App-logo text-center flex-auto" alt="logo" />
+        <h2 className='text-center'>+ best photo from your social</h2>
+        
+        {
+            (images.length > 0)
+              ? 
+              <a
+                className="button"
+                href="/add-selfie"
+                rel="noopener noreferrer"
+              >
+                next
+              </a>
+              : 
+              <>
+                <input type="file" accept="image/*" id="upload" hidden onChange={onImageChange} />
+                <label for="upload">Choose File</label>
+              </>
+          }
     </div>
   );
 }

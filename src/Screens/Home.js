@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import logo from '../fakescore-logo.svg'
 
+// localStorage.clear();
+
 const Home = ({ match }) => {
     return (
         <>
@@ -18,9 +20,6 @@ const Home = ({ match }) => {
               start
             </a>
           </header>
-          {/* <nav>
-            <Link to="/about">About</Link>
-          </nav> */}
         </>
       );
 }
