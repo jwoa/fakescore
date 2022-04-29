@@ -26,8 +26,9 @@ const AddPhoto = ({ match }) => {
         reader.readAsDataURL(res); 
         reader.onloadend = function() {
           var base64data = reader.result;                
-          console.log(base64data);
+          // console.log(base64data);
           localStorage.setItem('uploadedPhoto', reader.result);
+          console.log("UPLOADED PHOTO:",localStorage.getItem('uploadedPhoto'));
         }
       })
 

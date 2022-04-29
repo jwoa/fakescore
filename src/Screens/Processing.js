@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import { useNavigate } from "react-router-dom";
-import axios from 'axios';
+// import axios from 'axios';
 import logo from '../fakescore-logo.svg'
 
 
@@ -8,9 +8,9 @@ const Processing = () => {
 
   let navigate = useNavigate();
  
-  const [compareResult, setCompareResult] = useState(null);
-  const [firstFace, setFirstFace] = useState(null);
-  const [secondFace, setSecondFace] = useState(null);
+  // const [compareResult, setCompareResult] = useState(null);
+  // const [firstFace, setFirstFace] = useState(null);
+  // const [secondFace, setSecondFace] = useState(null);
 
   function makeblob(b64Data, contentType, sliceSize) {
     contentType = contentType || '';
@@ -53,7 +53,7 @@ const Processing = () => {
 
     fetch("https://eastus.api.cognitive.microsoft.com/face/v1.0/detect", requestOptions)
           .then(response => response.json())
-          // .then(result => console.log("aaa",result[0]["faceId"]))
+          // .then(result => setFirstFace(result[0]["faceId"]))
           .then(result => localStorage.setItem("faceId1", result[0]["faceId"]))
           .then(secondRequest())
           .catch(error => console.log('error', error));
@@ -75,57 +75,60 @@ const Processing = () => {
 
     fetch("https://eastus.api.cognitive.microsoft.com/face/v1.0/detect", requestOptionsSelfie)
           .then(response => response.json())
-          // .then(result => console.log("sssid", result[0]["faceId"]))
+          // .then(result => setSecondFace(result[0]["faceId"]))
           .then(result => localStorage.setItem("faceId2", result[0]["faceId"]))
           .then(compare())
           .catch(error => console.log('error', error));
   }
   function compare() {
-
     console.log("compare function running")
 
-    var myHeaders = new Headers();
+    setTimeout(() => {
+      console.log('Okay now we go! (3 secs passed)')
+      console.log("firstFaceLS", localStorage.getItem("faceId1"))
+      console.log("secondFaceLS", localStorage.getItem("faceId2"))
+
+      var myHeaders = new Headers();
         myHeaders.append("Ocp-Apim-Subscription-Key", "a620035df3924c32b8fcd3b7b48b30e5");
         myHeaders.append("Content-Type", "application/json");
 
-    // console.log("firstface", firstFace[0])
+      // Compare Two Faces
+      var raw = JSON.stringify({
+        "faceId1": localStorage.getItem("faceId1"),
+        "faceId2": localStorage.getItem("faceId2")
+      });
 
-    // Compare Two Faces
-    var raw = JSON.stringify({
-      "faceId1": localStorage.getItem("faceId1"),
-      "faceId2": localStorage.getItem("faceId2")
-    });
+      console.log("raw", raw)
 
-    var requestOptions = {
-      method: 'POST',
-      headers: myHeaders,
-      body: raw,
-      redirect: 'follow'
-    };
+      var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: raw,
+        redirect: 'follow'
+      };
+  
+      fetch("https://eastus.api.cognitive.microsoft.com/face/v1.0/verify", requestOptions)
+        .then(response => response.json())
+        .then(result => localStorage.setItem("result", result["confidence"]))
+        .catch(error => console.log('error', error));
 
-    fetch("https://eastus.api.cognitive.microsoft.com/face/v1.0/verify", requestOptions)
-      .then(response => response.json())
-      .then(result => localStorage.setItem("result", result["confidence"]))
-      // .then(result => setCompareResult(result)["confidence"])
-      .catch(error => console.log('error', error));
+      
 
-    
-    // localStorage.setItem('Results', compareResult["confidence"]);
-    console.log("WE LIVE BABY")
-    navigate('/results')
+      setTimeout(() => {
+        console.log(localStorage.getItem('result'))
+        console.log("WE LIVE BABY");
+        navigate('/results')
+
+      }, 2000)
+      
+
+    }, 3000);
 
   }
 
   useEffect(() => {
-    // if (firstFace && secondFace) {
-    //   compare()
-    // }
+
     firstRequest()
-    // secondRequest()
-    // setTimeout(() => {
-    //   compare()
-    // }, 3000);
-    
     
   }, []);
 

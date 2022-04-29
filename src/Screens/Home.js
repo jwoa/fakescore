@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import logo from '../fakescore-logo.svg'
 
-// localStorage.clear();
-
 const Home = ({ match }) => {
+
     return (
         <>
           <header className="App-header">
