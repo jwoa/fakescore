@@ -1,5 +1,7 @@
 import React from 'react';
 import logo from '../fakescore-logo.svg'
+import 'dotenv/config'
+console.log(process.env)
 
 const Home = ({ match }) => {
 
