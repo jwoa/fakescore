@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import { useNavigate } from "react-router-dom";
-import 'dotenv/config';
+// import 'dotenv/config';
 // import axios from 'axios';
 import logo from '../fakescore-logo.svg'
 
@@ -39,7 +39,7 @@ const Processing = () => {
 
   function firstRequest() {
     var myHeaders = new Headers();
-    myHeaders.append("Ocp-Apim-Subscription-Key", "KEY");
+    myHeaders.append("Ocp-Apim-Subscription-Key", process.env.REACT_APP_AZURE_KEY);
     myHeaders.append("Content-Type", "application/octet-stream");
 
     const uploadedPhoto = localStorage.getItem("uploadedPhoto");
@@ -61,7 +61,7 @@ const Processing = () => {
   }
   function secondRequest() {
     var myHeaders = new Headers();
-    myHeaders.append("Ocp-Apim-Subscription-Key", "KEY");
+    myHeaders.append("Ocp-Apim-Subscription-Key", process.env.REACT_APP_AZURE_KEY);
     myHeaders.append("Content-Type", "application/octet-stream");
 
     const uploadedSelfie = localStorage.getItem("uploadedSelfie");
@@ -90,7 +90,7 @@ const Processing = () => {
       console.log("secondFaceLS", localStorage.getItem("faceId2"))
 
       var myHeaders = new Headers();
-        myHeaders.append("Ocp-Apim-Subscription-Key", "KEY");
+        myHeaders.append("Ocp-Apim-Subscription-Key", process.env.REACT_APP_AZURE_KEY);
         myHeaders.append("Content-Type", "application/json");
 
       // Compare Two Faces

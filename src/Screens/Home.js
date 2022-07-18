@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from '../fakescore-logo.svg'
-import 'dotenv/config'
-console.log(process.env)
+// import 'dotenv/config'
+// console.log(process.env.REACT_APP_AZURE_KEY)
 
 const Home = ({ match }) => {
 
