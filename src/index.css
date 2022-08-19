@@ -41,12 +41,37 @@ h3 {
   text-shadow: 0px 4px 4px rgba(217, 200, 51, 0.9);
 }
 
+.plain {
+  text-shadow: none;
+  color: #000;
+}
+
 .button {
   border-radius: 20px;
   background-color: #55522F;
   padding: 8px 25px;
   color: #FFF;
   margin-top: 30px;
+}
+
+.social-links {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.social-links img {
+  width: 50px;
+  height: 50px;
+  margin: 0 10px;
+}
+
+.bottomFace {
+  position: absolute;
+  right: 0%;
+  bottom: 0%;
+  width: 320px;
 }
 
 code {

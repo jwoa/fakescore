@@ -43,6 +43,7 @@ const Processing = () => {
     myHeaders.append("Content-Type", "application/octet-stream");
 
     const uploadedPhoto = localStorage.getItem("uploadedPhoto");
+    console.log("UPLOADED PHOTO",uploadedPhoto)
     const binDataImage = uploadedPhoto.replace("data:image/jpeg;base64,","");
 
     var requestOptions = {
@@ -52,7 +53,7 @@ const Processing = () => {
       redirect: 'follow'
     };
 
-    fetch("https://eastus.api.cognitive.microsoft.com/face/v1.0/detect", requestOptions)
+    fetch("https://fakescore.cognitiveservices.azure.com/face/v1.0/detect", requestOptions)
           .then(response => response.json())
           // .then(result => setFirstFace(result[0]["faceId"]))
           .then(result => localStorage.setItem("faceId1", result[0]["faceId"]))
@@ -65,6 +66,7 @@ const Processing = () => {
     myHeaders.append("Content-Type", "application/octet-stream");
 
     const uploadedSelfie = localStorage.getItem("uploadedSelfie");
+    console.log("UPLOADED SELFIE",uploadedSelfie)
     const binDataImageSelfie = uploadedSelfie.replace("data:image/png;base64,","");
 
     var requestOptionsSelfie = {
@@ -74,7 +76,7 @@ const Processing = () => {
       redirect: 'follow'
     };
 
-    fetch("https://eastus.api.cognitive.microsoft.com/face/v1.0/detect", requestOptionsSelfie)
+    fetch("https://fakescore.cognitiveservices.azure.com/face/v1.0/detect", requestOptionsSelfie)
           .then(response => response.json())
           // .then(result => setSecondFace(result[0]["faceId"]))
           .then(result => localStorage.setItem("faceId2", result[0]["faceId"]))
@@ -108,7 +110,7 @@ const Processing = () => {
         redirect: 'follow'
       };
   
-      fetch("https://eastus.api.cognitive.microsoft.com/face/v1.0/verify", requestOptions)
+      fetch("https://fakescore.cognitiveservices.azure.com/face/v1.0/verify", requestOptions)
         .then(response => response.json())
         .then(result => localStorage.setItem("result", result["confidence"]))
         .catch(error => console.log('error', error));
