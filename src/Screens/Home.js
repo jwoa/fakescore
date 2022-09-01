@@ -9,17 +9,11 @@ const Home = ({ match }) => {
         <>
           <header className="App-header">
             <img src={logo} className="App-logo" alt="logo" />
-            <h1>Fake<br/>
-              Score
-            </h1>
+            <h1>Fake Score</h1>
+            <h2>Coming Soon</h2>
+            <br/>
             <p>Are you the realest?</p>
-            <a
-              className="button"
-              href="/add-photo"
-              rel="noopener noreferrer"
-            >
-              start
-            </a>
+            
           </header>
         </>
       );
