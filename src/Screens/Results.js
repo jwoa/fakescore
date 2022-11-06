@@ -50,7 +50,7 @@ const Results = ({ match }) => {
             <h1 className='mb-10'>{(Math.floor((localStorage.getItem('result') / 1) * 100))}%</h1>
 
             <div className='flex social-links'>
-              <img src={facebook} className="facebook text-center" alt="facebook" />
+              <a href=""><img src={facebook} className="facebook text-center" alt="facebook" /></a>
               <img src={twitter} className="twitter text-center" alt="twitter" />
               <img src={instagram} className="instagram text-center" alt="instagram" />
             </div>
