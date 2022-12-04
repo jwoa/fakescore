@@ -10,6 +10,7 @@ import AddSelfie from './Screens/AddSelfie';
 import AddPhoto from './Screens/AddPhoto';
 import Processing from './Screens/Processing';
 import Results from './Screens/Results';
+import Failure from './Screens/Failure';
 
 function AddPhotoSocial() {
   return (
@@ -46,6 +47,7 @@ function App() {
         <Route path="/add-selfie" element={<AddSelfie/>} />
         <Route path="/processing" element={<Processing />} />
         <Route path="/results" element={<Results />} />
+        <Route path="/failure" element={<Failure />} />
       </Routes>
     </div>
   );

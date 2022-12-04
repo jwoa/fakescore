@@ -8,14 +8,15 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.24.0",
     "dotenv": "^16.0.1",
+    "face-plusplus-node": "^0.0.2",
     "image-conversion": "^2.1.1",
-    "os-browserify": "^0.3.0",
     "path-browserify": "^1.0.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-html5-camera-photo": "^1.5.5",
     "react-router-dom": "^6.2.1",
     "react-scripts": "5.0.0",
+    "util": "^0.12.5",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -44,8 +45,19 @@
     ]
   },
   "devDependencies": {
+    "@types/node": "^18.11.10",
+    "assert": "^2.0.0",
     "autoprefixer": "^10.4.2",
+    "buffer": "^6.0.3",
+    "crypto-browserify": "^3.12.0",
+    "https-browserify": "^1.0.0",
+    "os-browserify": "^0.3.0",
     "postcss": "^8.4.6",
-    "tailwindcss": "^3.0.18"
+    "process": "^0.11.10",
+    "react-app-rewired": "^2.2.1",
+    "stream-browserify": "^3.0.0",
+    "stream-http": "^3.2.0",
+    "tailwindcss": "^3.0.18",
+    "url": "^0.11.0"
   }
 }

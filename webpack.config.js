@@ -4,10 +4,21 @@ module.exports = {
         //     "os": require.resolve("path-browserify") 
         // },
         fallback: { 
-            "os": require.resolve("os-browserify/browser") 
+            "os": require.resolve("os-browserify/browser"),
+            "https": require.resolve("https-browserify"),
+            "fs": false,
+    "tls": false,
+    "net": false,
+    "path": false,
+    "zlib": false,
+    // "http": false,
+    "https": false,
+    "stream": false,
+    "crypto": false,
         },
     },
-    // node: {
-    //     fs: "empty"
-    // }
+    node: {
+        fs: "empty"
+    },
+    target: 'node'
 }
