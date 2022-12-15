@@ -48,6 +48,13 @@ const Processing = () => {
   axios({
     method: 'post',
     url: 'https://api-us.faceplusplus.com/facepp/v3/compare',
+    // Configure headers for CORS
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded',
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept',
+      'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+    },
     data: {
       api_key: process.env.REACT_APP_FACEPP_KEY,
       api_secret: process.env.REACT_APP_FACEPP_SECRET,
