@@ -56,8 +56,10 @@ const Processing = () => {
       'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
     },
     data: {
-      api_key: process.env.REACT_APP_FACEPP_KEY,
-      api_secret: process.env.REACT_APP_FACEPP_SECRET,
+      api_key: "o76CcL3UcRLAkj_nkWU6P9dMKnEBIbWi",
+      api_secret: "gmupP3whYdLvNMStGO5nA1YVdzDug38N",
+      // api_key: process.env.REACT_APP_FACEPP_KEY,
+      // api_secret: process.env.REACT_APP_FACEPP_SECRET,
       image_base64_1: binDataImage,
       image_base64_2: binDataImageSelfie
     }
