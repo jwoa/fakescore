@@ -1,0 +1,11 @@
+{
+  "/_app": "pages/_app.js",
+  "/_document": "pages/_document.js",
+  "/api/compare-image": "pages/api/compare-image.js",
+  "/compare": "pages/compare.html",
+  "/": "pages/index.html",
+  "/selfie": "pages/selfie.html",
+  "/social": "pages/social.html",
+  "/_error": "pages/_error.js",
+  "/404": "pages/404.html"
+}

@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import ButtonActions from '../components/ButtonActions';
-import Card from '../components/Card';
+// import Card from '../components/Card';
 import Results from '../components/Results';
 import Seo from '../components/Seo';
 import useFile from '../hooks/useFile';
@@ -28,7 +28,7 @@ export default function Home() {
       
       {/* Load the logo */}
       <div className='flex flex-col justify-center'>
-        <Image src={logo} alt='logo' width={179} height={231} />
+        <Image src={logo} alt='logo' width={179} height={231} className="vert-move" />
         
         <h1 style={{marginTop: 40}}>Fake<br/>Score</h1>
         <p>Are you the realest?</p>
@@ -44,7 +44,7 @@ export default function Home() {
       >
         start
       </a> */}
-      <Link href="/compare" className="button">
+      <Link href="/social" className="button">
         <a className='button'>Start</a>
       </Link>
 

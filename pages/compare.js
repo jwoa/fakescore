@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import ButtonActions from '../components/ButtonActions';
-import Card from '../components/Card';
+import Card from '../components/CardSocial';
 import Results from '../components/Results';
 import Seo from '../components/Seo';
 import useFile from '../hooks/useFile';
