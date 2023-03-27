@@ -1,4 +1,5 @@
 import { ToastContainer } from 'react-toastify';
+import { Analytics } from '@vercel/analytics/react';
 
 import Layout from '../layouts';
 import Instructions from '../components/Instructions';
@@ -15,6 +16,7 @@ function MyApp({ Component, pageProps }) {
     <Layout>
       <Instructions />
       <Component {...pageProps} />
+      <Analytics />
       {/* <ToastContainer
         position='top-right'
         autoClose={8000}
